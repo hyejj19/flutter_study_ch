@@ -22,6 +22,15 @@ class _ThreadMainScreenState extends State<ThreadMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: FaIcon(
+            FontAwesomeIcons.threads,
+            size: 40,
+          ),
+        ),
+        backgroundColor: Colors.white,
+      ),
       body: Stack(
         children: [
           Offstage(
