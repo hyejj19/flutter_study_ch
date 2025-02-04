@@ -11,7 +11,7 @@ class ThreadHomeScreen extends StatelessWidget {
         "author": faker.person.name(),
         "content": faker.lorem.sentence(),
         "images": List.generate(
-            faker.randomGenerator.integer(5, min: 2),
+            faker.randomGenerator.integer(5, min: 0),
             (idx) => faker.image.loremPicsum(
                 width: 1200,
                 height: 900,
