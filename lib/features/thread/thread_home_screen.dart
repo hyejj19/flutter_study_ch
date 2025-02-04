@@ -11,7 +11,11 @@ class ThreadHomeScreen extends StatelessWidget {
         "author": faker.person.name(),
         "content": faker.lorem.sentence(),
         "images": List.generate(
-            faker.randomGenerator.integer(5, min: 1), (idx) => faker.image),
+            faker.randomGenerator.integer(5, min: 2),
+            (idx) => faker.image.loremPicsum(
+                width: 1200,
+                height: 900,
+                random: faker.randomGenerator.integer(1000))),
         "replies": faker.randomGenerator.integer(20),
         "likes": faker.randomGenerator.integer(100),
       };
@@ -23,7 +27,9 @@ class ThreadHomeScreen extends StatelessWidget {
     final posts = generateMockPosts(10);
 
     return Scaffold(
-      body: ListView.builder(
+      body: ListView.separated(
+        padding: EdgeInsets.all(30),
+        separatorBuilder: (context, index) => SizedBox(height: 12),
         itemCount: posts.length,
         itemBuilder: (context, index) {
           final post = posts[index];
@@ -32,6 +38,7 @@ class ThreadHomeScreen extends StatelessWidget {
             content: post['content'],
             replies: post['replies'],
             likes: post['likes'],
+            imageUrls: post['images'],
           );
         },
       ),
