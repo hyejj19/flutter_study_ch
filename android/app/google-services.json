@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "242363449102",
+    "project_id": "clone-study-thread",
+    "storage_bucket": "clone-study-thread.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242363449102:android:f7d2303796891b9475a15f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_study_ch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAazyWUStntzO4PnHEWInmpSUfy89sdmmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242363449102:android:b7167ac5ff37cdf275a15f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_study_ch_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAazyWUStntzO4PnHEWInmpSUfy89sdmmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
