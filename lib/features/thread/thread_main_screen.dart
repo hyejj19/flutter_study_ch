@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study_ch/features/thread/login_screen.dart';
 import 'package:flutter_study_ch/features/thread/thread_home_screen.dart';
 import 'package:flutter_study_ch/features/thread/widgets/nav_tab.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -62,7 +63,7 @@ class _ThreadMainScreenState extends State<ThreadMainScreen> {
             offstage: !(_selectedIndex == 4),
             child: Scaffold(
                 body: Center(
-              child: Text('My page 준비중'),
+              child: LoginScreen(),
             )),
           ),
         ],

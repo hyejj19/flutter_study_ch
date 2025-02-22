@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study_ch/features/thread/widgets/post_item.dart';
 
 class ThreadHomeScreen extends StatelessWidget {
+  static const routeName = "home";
+  static const routeURL = "/";
+
   const ThreadHomeScreen({super.key});
 
   List<Map<String, dynamic>> generateMockPosts(int count) {
