@@ -1,55 +1,42 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_study_ch/constants/sizes.dart';
-import 'package:flutter_study_ch/features/thread/signup_screen.dart';
+import 'package:flutter_study_ch/features/thread/login_screen.dart';
 import 'package:flutter_study_ch/features/thread/thread_main_screen.dart';
 import 'package:flutter_study_ch/features/thread/widgets/auth_button.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignupScreen extends StatefulWidget {
   static String routeName = "login";
   static String routeURL = "/login";
 
-  const LoginScreen({super.key});
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void _handleLogin() async {
+  Future<void> _handleSignup() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
-
-    if (email.isEmpty || password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter both email and password')),
+    try {
+      await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
       );
-      return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Signup failed: ${e.toString()}")),
+      );
     }
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => ThreadMainScreen()),
-    );
-
-    await _auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-
-    // 로그인 로직 (예: API 호출)
-    print('Logging in with: $email, $password');
-  }
-
-  void _handleSignup() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SignupScreen()),
-    );
   }
 
   @override
@@ -87,16 +74,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: Sizes.size20),
               AuthButton(
-                text: 'Log In',
-                onPressed: _handleLogin,
+                text: 'Sign up',
+                onPressed: _handleSignup,
               ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: Sizes.size32),
-        child: OutlinedButton(onPressed: _handleSignup, child: Text('가입하기')),
       ),
     );
   }
