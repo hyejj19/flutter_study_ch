@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study_ch/features/thread/login_screen.dart';
 import 'package:flutter_study_ch/features/thread/thread_home_screen.dart';
 import 'package:flutter_study_ch/features/thread/widgets/nav_tab.dart';
+import 'package:flutter_study_ch/features/thread/write_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ThreadMainScreen extends StatefulWidget {
@@ -49,7 +50,7 @@ class _ThreadMainScreenState extends State<ThreadMainScreen> {
             offstage: !(_selectedIndex == 2),
             child: Scaffold(
                 body: Center(
-              child: Text('Post page 준비중'),
+              child: WriteScreen(),
             )),
           ),
           Offstage(
