@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_ch/features/thread/login_screen.dart';
+import 'package:flutter_study_ch/features/thread/search_screen.dart';
 import 'package:flutter_study_ch/features/thread/thread_home_screen.dart';
 import 'package:flutter_study_ch/features/thread/widgets/nav_tab.dart';
 import 'package:flutter_study_ch/features/thread/write_screen.dart';
@@ -43,7 +44,7 @@ class _ThreadMainScreenState extends State<ThreadMainScreen> {
             offstage: !(_selectedIndex == 1),
             child: Scaffold(
                 body: Center(
-              child: Text('Search page 준비중'),
+              child: SearchScreen(),
             )),
           ),
           Offstage(
